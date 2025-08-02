@@ -1,0 +1,19 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Уровень 1. Диаграмма контекста
+
+Person(Эколог, "Эколог организации")
+Person(СМЭ, "Сотрудник министрества экологии")
+Rel(Эколог, СМЭ, "Предоставление отчетов")
+
+Container(1с, "1с: Отчетность ТКО")
+Rel(Эколог, 1с, "Ввод даных полученых ТКО")
+Rel(1с, Эколог, "Формирование отчета за период")
+
+@enduml
+
