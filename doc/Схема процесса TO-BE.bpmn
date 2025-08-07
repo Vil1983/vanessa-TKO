@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" id="sid-38422fae-e03e-43a3-bef4-bd33b32041b2" targetNamespace="http://bpmn.io/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.6.1">
+  <collaboration id="Collaboration_0jzsx9u">
+    <participant id="Participant_04o2f2e" name="Сдача отчетности по ТКО (TO-BE)" processRef="Process_1" />
+  </collaboration>
+  <process id="Process_1" isExecutable="false">
+    <laneSet id="LaneSet_1v51cgi">
+      <lane id="Lane_1k1wtqa" name="Эколог компании">
+        <flowNodeRef>StartEvent_1y45yut</flowNodeRef>
+        <flowNodeRef>Task_1hcentk</flowNodeRef>
+        <flowNodeRef>Activity_00mxjyw</flowNodeRef>
+        <flowNodeRef>Activity_1r3ztjr</flowNodeRef>
+        <flowNodeRef>Event_1v9anqx</flowNodeRef>
+        <flowNodeRef>Activity_1xry1ck</flowNodeRef>
+        <flowNodeRef>Activity_0qwdh27</flowNodeRef>
+      </lane>
+      <lane id="Lane_0fwg2g1" name="Сотрудник министерства экологии">
+        <flowNodeRef>Activity_13qlvi1</flowNodeRef>
+        <flowNodeRef>Activity_07wawbj</flowNodeRef>
+        <flowNodeRef>Gateway_0zog8w1</flowNodeRef>
+        <flowNodeRef>Event_1fnpqjv</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="StartEvent_1y45yut" name="Получение бумажных накладных по отгруженным ТКО">
+      <outgoing>SequenceFlow_0h21x7r</outgoing>
+    </startEvent>
+    <task id="Task_1hcentk" name="Ввод данных в базу 1c">
+      <incoming>SequenceFlow_0h21x7r</incoming>
+      <outgoing>SequenceFlow_0wnb4ke</outgoing>
+    </task>
+    <sequenceFlow id="SequenceFlow_0h21x7r" sourceRef="StartEvent_1y45yut" targetRef="Task_1hcentk" />
+    <sequenceFlow id="SequenceFlow_0wnb4ke" sourceRef="Task_1hcentk" targetRef="Activity_0qwdh27" />
+    <sequenceFlow id="Flow_051xn9z" sourceRef="Activity_1xry1ck" targetRef="Activity_00mxjyw" />
+    <sequenceFlow id="Flow_159qoz8" name="ДА" sourceRef="Gateway_0zog8w1" targetRef="Event_1fnpqjv" />
+    <sequenceFlow id="Flow_1exkm7m" sourceRef="Activity_00mxjyw" targetRef="Activity_07wawbj" />
+    <sequenceFlow id="Flow_09p783n" sourceRef="Activity_07wawbj" targetRef="Gateway_0zog8w1" />
+    <sequenceFlow id="Flow_19nxl29" sourceRef="Gateway_0zog8w1" targetRef="Activity_13qlvi1" />
+    <sequenceFlow id="Flow_0qdxtyx" sourceRef="Activity_13qlvi1" targetRef="Activity_1r3ztjr" />
+    <sequenceFlow id="Flow_18r0qf4" sourceRef="Activity_1r3ztjr" targetRef="Event_1v9anqx" />
+    <sequenceFlow id="Flow_1d2pba9" sourceRef="Activity_0qwdh27" targetRef="Activity_1xry1ck" />
+    <task id="Activity_00mxjyw" name="Оправка подготовленного отчета по почте">
+      <incoming>Flow_051xn9z</incoming>
+      <outgoing>Flow_1exkm7m</outgoing>
+    </task>
+    <task id="Activity_1r3ztjr" name="Обработка уточнений, переделка отчета">
+      <incoming>Flow_0qdxtyx</incoming>
+      <outgoing>Flow_18r0qf4</outgoing>
+    </task>
+    <endEvent id="Event_1v9anqx" name="Отчет не принят">
+      <incoming>Flow_18r0qf4</incoming>
+    </endEvent>
+    <task id="Activity_13qlvi1" name="Запрос уточнений">
+      <incoming>Flow_19nxl29</incoming>
+      <outgoing>Flow_0qdxtyx</outgoing>
+    </task>
+    <task id="Activity_07wawbj" name="Проверка отчета">
+      <incoming>Flow_1exkm7m</incoming>
+      <outgoing>Flow_09p783n</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_0zog8w1" name="Отчет корректен?">
+      <incoming>Flow_09p783n</incoming>
+      <outgoing>Flow_159qoz8</outgoing>
+      <outgoing>Flow_19nxl29</outgoing>
+    </exclusiveGateway>
+    <endEvent id="Event_1fnpqjv" name="Отчет принят">
+      <incoming>Flow_159qoz8</incoming>
+    </endEvent>
+    <task id="Activity_1xry1ck" name="Формирование отчета в 1с за указанный период">
+      <incoming>Flow_1d2pba9</incoming>
+      <outgoing>Flow_051xn9z</outgoing>
+    </task>
+    <task id="Activity_0qwdh27" name="Определение периода для отчета">
+      <incoming>SequenceFlow_0wnb4ke</incoming>
+      <outgoing>Flow_1d2pba9</outgoing>
+    </task>
+  </process>
+  <bpmndi:BPMNDiagram id="BpmnDiagram_1">
+    <bpmndi:BPMNPlane id="BpmnPlane_1" bpmnElement="Collaboration_0jzsx9u">
+      <bpmndi:BPMNShape id="Participant_04o2f2e_di" bpmnElement="Participant_04o2f2e" isHorizontal="true">
+        <omgdc:Bounds x="152" y="60" width="1448" height="510" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0fwg2g1_di" bpmnElement="Lane_0fwg2g1" isHorizontal="true">
+        <omgdc:Bounds x="182" y="300" width="1418" height="270" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1k1wtqa_di" bpmnElement="Lane_1k1wtqa" isHorizontal="true">
+        <omgdc:Bounds x="182" y="60" width="1418" height="240" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1y45yut_di" bpmnElement="StartEvent_1y45yut" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
+        <omgdc:Bounds x="252" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="235" y="145" width="71" height="66" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1hcentk_di" bpmnElement="Task_1hcentk">
+        <omgdc:Bounds x="330" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_00mxjyw_di" bpmnElement="Activity_00mxjyw">
+        <omgdc:Bounds x="1000" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1r3ztjr_di" bpmnElement="Activity_1r3ztjr">
+        <omgdc:Bounds x="1160" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1v9anqx_di" bpmnElement="Event_1v9anqx" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
+        <omgdc:Bounds x="1392" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1368" y="145" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13qlvi1_di" bpmnElement="Activity_13qlvi1">
+        <omgdc:Bounds x="1160" y="330" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_07wawbj_di" bpmnElement="Activity_07wawbj">
+        <omgdc:Bounds x="1000" y="440" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0zog8w1_di" bpmnElement="Gateway_0zog8w1" isMarkerVisible="true">
+        <omgdc:Bounds x="1185" y="455" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1181" y="514.5" width="58" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1fnpqjv_di" bpmnElement="Event_1fnpqjv" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
+        <omgdc:Bounds x="1392" y="462" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1375" y="505" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xry1ck_di" bpmnElement="Activity_1xry1ck">
+        <omgdc:Bounds x="780" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qwdh27_di" bpmnElement="Activity_0qwdh27">
+        <omgdc:Bounds x="540" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0h21x7r_di" bpmnElement="SequenceFlow_0h21x7r">
+        <omgdi:waypoint x="288" y="120" />
+        <omgdi:waypoint x="330" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0wnb4ke_di" bpmnElement="SequenceFlow_0wnb4ke">
+        <omgdi:waypoint x="430" y="120" />
+        <omgdi:waypoint x="540" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_051xn9z_di" bpmnElement="Flow_051xn9z">
+        <omgdi:waypoint x="880" y="120" />
+        <omgdi:waypoint x="1000" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_159qoz8_di" bpmnElement="Flow_159qoz8">
+        <omgdi:waypoint x="1235" y="480" />
+        <omgdi:waypoint x="1392" y="480" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1268" y="462" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1exkm7m_di" bpmnElement="Flow_1exkm7m">
+        <omgdi:waypoint x="1050" y="160" />
+        <omgdi:waypoint x="1050" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09p783n_di" bpmnElement="Flow_09p783n">
+        <omgdi:waypoint x="1100" y="480" />
+        <omgdi:waypoint x="1185" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19nxl29_di" bpmnElement="Flow_19nxl29">
+        <omgdi:waypoint x="1210" y="455" />
+        <omgdi:waypoint x="1210" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qdxtyx_di" bpmnElement="Flow_0qdxtyx">
+        <omgdi:waypoint x="1210" y="330" />
+        <omgdi:waypoint x="1210" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18r0qf4_di" bpmnElement="Flow_18r0qf4">
+        <omgdi:waypoint x="1260" y="120" />
+        <omgdi:waypoint x="1392" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1d2pba9_di" bpmnElement="Flow_1d2pba9">
+        <omgdi:waypoint x="640" y="120" />
+        <omgdi:waypoint x="780" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
