@@ -108,11 +108,11 @@
     <sequenceFlow id="Flow_09p783n" sourceRef="Activity_07wawbj" targetRef="Gateway_0zog8w1" />
     <sequenceFlow id="Flow_19nxl29" sourceRef="Gateway_0zog8w1" targetRef="Activity_13qlvi1" />
     <sequenceFlow id="Flow_0qdxtyx" sourceRef="Activity_13qlvi1" targetRef="Activity_1r3ztjr" />
-    <endEvent id="Event_1v9anqx" name="Отчет не принят">
+    <endEvent id="Event_1v9anqx" name="Переделать отчет">
       <incoming>Flow_18r0qf4</incoming>
     </endEvent>
     <sequenceFlow id="Flow_18r0qf4" sourceRef="Activity_1r3ztjr" targetRef="Event_1v9anqx" />
-    <endEvent id="Event_1fnpqjv" name="Отчет принят">
+    <endEvent id="Event_1fnpqjv" name="Принять отчет">
       <incoming>Flow_159qoz8</incoming>
     </endEvent>
   </process>
@@ -201,13 +201,13 @@
       <bpmndi:BPMNShape id="Event_1v9anqx_di" bpmnElement="Event_1v9anqx" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
         <omgdc:Bounds x="1392" y="222" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds x="1368" y="265" width="85" height="14" />
+          <omgdc:Bounds x="1380" y="265" width="62" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1fnpqjv_di" bpmnElement="Event_1fnpqjv" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
         <omgdc:Bounds x="1392" y="612" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds x="1375" y="655" width="70" height="14" />
+          <omgdc:Bounds x="1373" y="655" width="75" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0h21x7r_di" bpmnElement="SequenceFlow_0h21x7r">

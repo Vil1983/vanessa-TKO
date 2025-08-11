@@ -46,7 +46,7 @@
       <incoming>Flow_0qdxtyx</incoming>
       <outgoing>Flow_18r0qf4</outgoing>
     </task>
-    <endEvent id="Event_1v9anqx" name="Отчет не принят">
+    <endEvent id="Event_1v9anqx" name="Переделать отчет">
       <incoming>Flow_18r0qf4</incoming>
     </endEvent>
     <task id="Activity_13qlvi1" name="Запрос уточнений">
@@ -62,7 +62,7 @@
       <outgoing>Flow_159qoz8</outgoing>
       <outgoing>Flow_19nxl29</outgoing>
     </exclusiveGateway>
-    <endEvent id="Event_1fnpqjv" name="Отчет принят">
+    <endEvent id="Event_1fnpqjv" name="Принять отчет">
       <incoming>Flow_159qoz8</incoming>
     </endEvent>
     <task id="Activity_1xry1ck" name="Формирование отчета в 1с за указанный период">
@@ -109,7 +109,7 @@
       <bpmndi:BPMNShape id="Event_1v9anqx_di" bpmnElement="Event_1v9anqx" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
         <omgdc:Bounds x="1392" y="102" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds x="1368" y="145" width="85" height="14" />
+          <omgdc:Bounds x="1380" y="145" width="62" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_13qlvi1_di" bpmnElement="Activity_13qlvi1">
@@ -129,7 +129,7 @@
       <bpmndi:BPMNShape id="Event_1fnpqjv_di" bpmnElement="Event_1fnpqjv" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
         <omgdc:Bounds x="1392" y="462" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds x="1375" y="505" width="70" height="14" />
+          <omgdc:Bounds x="1373" y="505" width="75" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1xry1ck_di" bpmnElement="Activity_1xry1ck">
