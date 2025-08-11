@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="ИНН" id="7">
+			<DataPath>Объект.ИНН</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ИННКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ИННРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="Договор" id="10">
+			<DataPath>Объект.Договор</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ДоговорКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ДоговорРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<UsualGroup name="ГруппаДоговоры" id="44">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Договоры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа договоры</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Collapsible</Behavior>
+			<ExtendedTooltip name="ГруппаДоговорыРасширеннаяПодсказка" id="45"/>
+			<ChildItems>
+				<Table name="Договоры" id="13">
+					<Representation>List</Representation>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<EnableStartDrag>true</EnableStartDrag>
+					<DataPath>Договоры</DataPath>
+					<RowPictureDataPath>Договоры.DefaultPicture</RowPictureDataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договоры контрагенты</v8:content>
+						</v8:item>
+					</Title>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="ДоговорыКонтекстноеМеню" id="14"/>
+					<AutoCommandBar name="ДоговорыКоманднаяПанель" id="15"/>
+					<ExtendedTooltip name="ДоговорыРасширеннаяПодсказка" id="16"/>
+					<SearchStringAddition name="ДоговорыСтрокаПоиска" id="17">
+						<AdditionSource>
+							<Item>Договоры</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДоговорыСтрокаПоискаКонтекстноеМеню" id="18"/>
+						<ExtendedTooltip name="ДоговорыСтрокаПоискаРасширеннаяПодсказка" id="19"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ДоговорыСостояниеПросмотра" id="20">
+						<AdditionSource>
+							<Item>Договоры</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДоговорыСостояниеПросмотраКонтекстноеМеню" id="21"/>
+						<ExtendedTooltip name="ДоговорыСостояниеПросмотраРасширеннаяПодсказка" id="22"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ДоговорыУправлениеПоиском" id="23">
+						<AdditionSource>
+							<Item>Договоры</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ДоговорыУправлениеПоискомКонтекстноеМеню" id="24"/>
+						<ExtendedTooltip name="ДоговорыУправлениеПоискомРасширеннаяПодсказка" id="25"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="BeforeAddRow">ДоговорыПередНачаломДобавления</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="ДоговорыНомер" id="41">
+							<DataPath>Договоры.Номер</DataPath>
+							<ContextMenu name="ДоговорыНомерКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="ДоговорыНомерРасширеннаяПодсказка" id="43"/>
+						</LabelField>
+						<LabelField name="ДоговорыНаименование" id="26">
+							<DataPath>Договоры.Description</DataPath>
+							<ContextMenu name="ДоговорыНаименованиеКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="ДоговорыНаименованиеРасширеннаяПодсказка" id="28"/>
+						</LabelField>
+						<LabelField name="ДоговорыДата" id="38">
+							<DataPath>Договоры.Дата</DataPath>
+							<ContextMenu name="ДоговорыДатаКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ДоговорыДатаРасширеннаяПодсказка" id="40"/>
+						</LabelField>
+						<LabelField name="ДоговорыДатаПо" id="46">
+							<DataPath>Договоры.ДатаПо</DataPath>
+							<ContextMenu name="ДоговорыДатаПоКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="ДоговорыДатаПоРасширеннаяПодсказка" id="48"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.Контрагенты</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Договоры" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Договоры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<Parameter>
+					<dcssch:name>Владелец</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Владелец</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>Catalog.Договоры</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>
